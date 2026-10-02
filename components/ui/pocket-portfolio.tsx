@@ -639,55 +639,78 @@ function DrawnPortrait({ uid, look }: { uid: string; look: { x: number; y: numbe
     <svg viewBox="0 0 120 120" width={120} height={120} role="img" aria-hidden="true">
       <defs>
         <linearGradient id={bg} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#e4e4e4" />
-          <stop offset="1" stopColor="#bdbdbd" />
+          <stop offset="0" stopColor="#f5efe6" />
+          <stop offset="1" stopColor="#ded5c4" />
         </linearGradient>
         <clipPath id={lens}>
-          <rect x="43.5" y="45.5" width="15" height="12.5" rx="5" />
-          <rect x="61.5" y="45.5" width="15" height="12.5" rx="5" />
+          <rect x="42.5" y="45" width="16" height="14" rx="6.5" />
+          <rect x="61.5" y="45" width="16" height="14" rx="6.5" />
         </clipPath>
       </defs>
       <rect width="120" height="120" fill={"url(#" + bg + ")"} />
       <g transform="translate(-18 -6) scale(1.3)">
-        {/* shoulders */}
-        <path d="M4 120c2-20 22-30 56-31 34 1 54 11 56 31z" fill="#141414" />
-        <path d="M48 89c3 5 21 5 24 0" fill="none" stroke="#2c2c2c" strokeWidth={2} />
+        {/* body & clothing: beige knit vest over white shirt */}
+        <path d="M4 120c2-20 22-30 56-31 34 1 54 11 56 31z" fill="#cfbea5" />
+        {/* white collared shirt visible in neck & collar */}
+        <path d="M48 76v16l12 12 12-12V76z" fill="#ffffff" />
+        {/* vest V-neck opening border */}
+        <path d="M46 88l14 14 14-14" fill="none" stroke="#ba9f83" strokeWidth={2.4} strokeLinecap="round" />
+        {/* white shirt collar wings */}
+        <polygon points="43,80 54,90 51,77" fill="#ffffff" stroke="#d5d0c7" strokeWidth={0.9} />
+        <polygon points="77,80 66,90 69,77" fill="#ffffff" stroke="#d5d0c7" strokeWidth={0.9} />
+        
         {/* neck */}
-        <path d="M49 74v14c6 5 16 5 22 0V74z" fill="#9a9a9a" />
+        <path d="M49 71v14c6 4.5 16 4.5 22 0V71z" fill="#cbb39e" />
+        
         {/* ears */}
-        <ellipse cx="38.5" cy="57" rx="4" ry="6.5" fill="#a8a8a8" />
-        <ellipse cx="81.5" cy="57" rx="4" ry="6.5" fill="#a8a8a8" />
-        {/* face */}
-        <ellipse cx="60" cy="54" rx="21.5" ry="26" fill="#bcbcbc" />
-        <path d="M40 55c1 10 4 17 9 21" fill="none" stroke="#adadad" strokeWidth={2} />
-        {/* hair */}
-        <path d="M38.8 52c-2-16 6-26 21.2-26 15 0 23.4 10 21.2 26-2-8-6-12.5-9-13.5-4 2.5-18 3-26-.5-3.5 2-6 6.5-7.4 14z" fill="#343434" />
-        <path d="M43 35c5-11 28-12 35-.5-7-4.5-24-5.5-35 .5z" fill="#232323" />
-        {/* beard */}
-        <path d="M38.8 57c.6 16 9 29 21.2 29.5 12.2-.5 20.6-13.5 21.2-29.5-2.4 7.5-6 11.5-10 10.4-4.5-1.3-17.9-1.3-22.4 0-4 1.1-7.6-2.9-10-10.4z" fill="#474747" />
-        <path d="M49.5 66.8c4-3.6 8-3 10.5-1 2.5-2 6.5-2.6 10.5 1-4 1.3-7.6 1.3-10.5.6-2.9.7-6.5.7-10.5-.6z" fill="#2e2e2e" />
-        <path d="M55.5 71q4.5 2.2 9 0" fill="none" stroke="#6f6f6f" strokeWidth={1.2} strokeLinecap="round" />
+        <ellipse cx="38" cy="56" rx="3.8" ry="6.2" fill="#cbb39e" />
+        <ellipse cx="82" cy="56" rx="3.8" ry="6.2" fill="#cbb39e" />
+
+        {/* face - clean shaven, smooth jawline */}
+        <path d="M38.5 51c0-14 9.6-26 21.5-26s21.5 12 21.5 26c0 14-8.5 26.5-21.5 32.5-13-6-21.5-18.5-21.5-32.5z" fill="#ddc7b3" />
+        <path d="M40.5 54c1.5 10 5.5 17 19.5 25 14-8 18-15 19.5-25" fill="none" stroke="#caa991" strokeWidth={1.3} opacity={0.4} />
+
+        {/* hair base & back volume */}
+        <path d="M36.5 52c-1.5-18 8-32 23.5-32 17 0 26 12 24 32-3-11-8-16-12-17-5 2-17 3-23 0-4 3-8 9.5-12.5 17z" fill="#1f1a16" />
+        {/* stylish voluminous swept-back hair with wave */}
+        <path d="M35 44c0-17 10-27 25-27 15 0 26 9 24 22-3-13-14-18-25-16-9 1.5-17 9-20 21h-4z" fill="#2c241e" />
+        <path d="M40 26c9-9 28-7 38 6-7-5.5-23-6.5-31 0-3 2.5-5.5 0-7-6z" fill="#3a3128" />
+        <path d="M36 38c3-6 9-11 16-13-5 3-8 7-9 12-3 2-5.5 2.5-7 1z" fill="#2c241e" />
+
         {/* nose */}
-        <path d="M60 53.5q-1.6 6.5-3.6 8 3.4 1.8 6.6 0" fill="none" stroke="#8c8c8c" strokeWidth={1.1} strokeLinecap="round" />
+        <path d="M60 51.5q-1 7.5-3 9 3 1.8 6 0" fill="none" stroke="#997d66" strokeWidth={1.2} strokeLinecap="round" />
+
+        {/* clean mouth & gentle smile (NO beard, NO mustache) */}
+        <path d="M53.5 70.5q6.5 3.5 13 0" fill="none" stroke="#5a3d2e" strokeWidth={1.6} strokeLinecap="round" />
+        <path d="M56.5 73.5q3.5 1.4 7 0" fill="none" stroke="#b08d75" strokeWidth={1.2} strokeLinecap="round" opacity={0.7} />
+
         {/* brows */}
-        <path d="M45 45.6q5.5-3 11 .2M64 45.8q5.5-3.2 11-.2" fill="none" stroke="#343434" strokeWidth={1.9} strokeLinecap="round" />
-        {/* eyes */}
+        <path d="M43.5 44.5q5.5-2.8 11.5-.2M65 44.3q6-2.6 11.5.2" fill="none" stroke="#221c17" strokeWidth={2.2} strokeLinecap="round" />
+
+        {/* eyes - interactive pupils following cursor */}
         <g className="ppf-eyes">
-          <ellipse cx="51" cy="52" rx="3" ry="2" fill="#efefef" />
-          <ellipse cx="69" cy="52" rx="3" ry="2" fill="#efefef" />
+          <ellipse cx="50.5" cy="51.5" rx="3.2" ry="2.2" fill="#fafafa" />
+          <ellipse cx="69.5" cy="51.5" rx="3.2" ry="2.2" fill="#fafafa" />
           <g className="ppf-pupils" style={{ transform: "translate(" + look.x.toFixed(2) + "px," + look.y.toFixed(2) + "px)" }}>
-            <circle cx="51" cy="52" r="1.45" fill="#161616" />
-            <circle cx="69" cy="52" r="1.45" fill="#161616" />
+            <circle cx="50.5" cy="51.5" r="1.6" fill="#1c1612" />
+            <circle cx="69.5" cy="51.5" r="1.6" fill="#1c1612" />
+            <circle cx="51.1" cy="51" r="0.5" fill="#ffffff" />
+            <circle cx="70.1" cy="51" r="0.5" fill="#ffffff" />
           </g>
         </g>
-        {/* glasses */}
-        <g fill="rgba(255,255,255,.1)" stroke="#1d1d1d" strokeWidth={1.3}>
-          <rect x="43.5" y="45.5" width="15" height="12.5" rx="5" />
-          <rect x="61.5" y="45.5" width="15" height="12.5" rx="5" />
+
+        {/* glasses - rounded dark frames like in photo */}
+        <g fill="rgba(255,255,255,.12)" stroke="#1a1816" strokeWidth={1.35}>
+          <rect x="42.5" y="45" width="16" height="14" rx="6.5" />
+          <rect x="61.5" y="45" width="16" height="14" rx="6.5" />
         </g>
-        <path d="M58.5 50.6q1.5-1.4 3 0M43.5 50l-4.8 1.8M76.5 50l4.8 1.8" fill="none" stroke="#1d1d1d" strokeWidth={1.2} />
+        {/* bridge & temples */}
+        <path d="M58.5 49.5q1.5-1.8 3 0" fill="none" stroke="#1a1816" strokeWidth={1.35} />
+        <path d="M42.5 49.5l-4.5 1.5M77.5 49.5l4.5 1.5" fill="none" stroke="#1a1816" strokeWidth={1.2} />
+
+        {/* glasses glare glint */}
         <g clipPath={"url(#" + lens + ")"}>
-          <path className="ppf-glint" d="M40 62 52 42h4L44 62z" fill="rgba(255,255,255,.75)" />
+          <path className="ppf-glint" d="M40 64 52 40h4L44 64z" fill="rgba(255,255,255,.7)" />
         </g>
       </g>
     </svg>
