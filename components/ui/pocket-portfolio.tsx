@@ -410,8 +410,8 @@ const PPF_CSS = `
 
 .ppf-info{order:2;scroll-margin-top:64px}
 .ppf-top{display:flex;gap:14px;align-items:flex-start}
-.ppf-portrait{width:120px;height:120px;flex:none;border-radius:14px;overflow:hidden;background:var(--ppf-inner);position:relative}
-.ppf-portrait img{width:120px;height:120px;object-fit:cover;filter:grayscale(1)}
+.ppf-portrait{width:116px;height:116px;flex:none;border-radius:14px;overflow:hidden;background:var(--ppf-inner);position:relative;display:flex;align-items:center;justify-content:center}
+.ppf-portrait svg,.ppf-portrait img{width:100% !important;height:100% !important;max-width:100% !important;max-height:100% !important;object-fit:cover;display:block}
 .ppf-profile-side{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
 .ppf-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;min-width:0}
 .ppf-langs{display:flex;gap:6px}
@@ -506,20 +506,27 @@ const PPF_CSS = `
 
 .ppf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-@container (max-width:400px){
+@container (max-width:420px){
   .ppf-nav{padding-left:12px}
   .ppf-pills{gap:4px}
   .ppf-pill{font-size:14px;height:30px;padding:0 6px 0 10px;gap:5px}
   .ppf-pm{width:16px;height:16px}
   .ppf-top{gap:10px}
-  .ppf-portrait{width:96px;height:96px}
-  .ppf-portrait img{width:96px;height:96px}
+  .ppf-portrait{width:90px;height:90px;border-radius:12px}
   .ppf-profile-name{font-size:16px}
   .ppf-profile-role{font-size:10.5px}
   .ppf-profile-edu{font-size:10px}
   .ppf-profile-skill{font-size:9.5px;padding:1.5px 5px}
-  .ppf-bio{font-size:14.5px}
+  .ppf-bio{font-size:14px}
   .ppf-thumb{width:84px;height:84px}
+}
+@container (max-width:350px){
+  .ppf-top{flex-direction:column;align-items:center;text-align:center;gap:10px}
+  .ppf-profile-side{width:100%}
+  .ppf-portrait{width:96px;height:96px}
+  .ppf-meta{justify-content:center;gap:16px}
+  .ppf-profile-header{align-items:center}
+  .ppf-profile-skills{justify-content:center}
 }
 @container (min-width:880px){
   .ppf-root[data-layout="auto"] .ppf-shell{max-width:1080px;flex-direction:row;align-items:flex-start;gap:8px;padding:20px}
