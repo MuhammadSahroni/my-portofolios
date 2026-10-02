@@ -643,7 +643,7 @@ function DrawnPortrait({ uid, look }: { uid: string; look: { x: number; y: numbe
   const bg = uid + "-pbg"
   const lens = uid + "-lens"
   return (
-    <svg viewBox="0 0 120 120" width={120} height={120} role="img" aria-hidden="true">
+    <svg viewBox="0 0 120 120" role="img" aria-hidden="true" style={{ width: "100%", height: "100%", display: "block" }}>
       <defs>
         <linearGradient id={bg} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#f5efe6" />
@@ -1069,7 +1069,7 @@ export default function PocketPortfolio({
             <div className="ppf-top">
               <div className="ppf-portrait" ref={portraitRef}>
                 {portrait ? (
-                  <img src={portrait} alt={portraitAlt ?? name} width={120} height={120} style={{ maxWidth: "none" }} />
+                  <img src={portrait} alt={portraitAlt ?? name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 ) : (
                   <DrawnPortrait uid={uid} look={look} />
                 )}
